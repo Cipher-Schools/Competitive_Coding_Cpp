@@ -23,7 +23,7 @@ class User{
 			else{
 				if(map_username[username]==password){
 					cout<<"Login successful";
-					//chat();
+					chat();
 				}
 				else{
 						system("clear");
