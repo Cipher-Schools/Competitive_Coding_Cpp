@@ -1,0 +1,67 @@
+#include<bits/stdc++.h>
+using namespace std;
+enum Designation { CEO=500, CTO=400, MANAGER=300, SR_EMPLOYEE=200, EMPLOYEE=100 };
+class Interval {
+public:
+    int start, end; // [start, end) start is inclusive and end is exclusive.
+    void getdata()
+    {
+    	cin>>start;
+    	cin>>end;
+	}
+};
+class Employees {
+    public:
+    int empId;
+    Designation designation;
+    vector<Interval> meetings; // daily meeting calander.
+    void getdata()
+    {
+    	int e;
+    	cin>>e;
+    	int d;
+    	cin>>d;
+    	Designation R = static_cast<Designation>(d);
+    	vector<Interval> m;
+    	Interval I;
+    	I.getdata();
+    	m.push_back(I);
+    	this->empId=e;
+    	this->designation=d;
+    	this->meetings=m;
+	}
+	void printdata()
+	{
+		cout<<empId;
+		cout<<designation;
+		
+	}
+	Employees higherPos(Employees A, Employees B)
+	{
+		if(A.designation>=B.designation)
+		{
+			return A;
+		}
+		else
+		{
+			return B;
+		}
+	}
+	
+};
+vector<Employees> employees;
+int main()
+{
+	int n;
+	cout<<"Enter No. of Employees";
+	cin>>n;
+	Employees E[n];
+	for(int i=0;i<n;i++)
+	{
+		E[i].getdata();
+	}
+	for(int i=0;i<n;i++)
+	{
+		E[i].printdata();
+	}
+}
