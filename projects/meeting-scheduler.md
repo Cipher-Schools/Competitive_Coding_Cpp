@@ -16,6 +16,7 @@ class Employees {
 class Interval {
 public:
     int start, end; // [start, end) start is inclusive and end is exclusive.
+    int empId;
 }
 ```
 
