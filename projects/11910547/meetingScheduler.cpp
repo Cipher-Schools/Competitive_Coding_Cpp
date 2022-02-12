@@ -63,6 +63,20 @@ int main() {
                 return a.end < b.end;
             }
         });
+
+        cout<<"For Employee - "<<currEmp.empId<<":";
+        int meetSize = currEmp.meetings.size();
+        int currEmpTotalMeets = 0, endMeetSize = -1;
+        for(int i=0; i<meetSize; i++) {
+            if(currEmp.meetings[i].start > endMeetSize) {
+                // This meeting is attendable
+                currEmpTotalMeets++;
+                endMeetSize = currEmp.meetings[i].end;
+            }
+        }
+        cout<<"Total attendable meetings - "<<currEmpTotalMeets<<endl<<endl;
+
     }
+
 
 }
