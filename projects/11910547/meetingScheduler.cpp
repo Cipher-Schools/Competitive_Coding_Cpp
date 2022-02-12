@@ -13,6 +13,8 @@ using namespace std;
 vector<Employees> employees;
 enum Designation { CEO, CTO, MANAGER, SR_EMPLOYEE, EMPLOYEE };
 
+unordered_map<string, int> ranks = {{"CEO",0}, {"CTO", 1}, {"MANAGER", 2}, {"SR_EMPLOYEE", 3}, {"EMPLOYEE", 4}};
+
 class Interval {
 public:
     int start, end; // [start, end) start is inclusive and end is exclusive.
@@ -22,13 +24,22 @@ public:
 class Employees {
     public:
     int empId;
-    Designation designation;
+    string designation;
     vector<Interval> meetings; // daily meeting calander.
 
-    Designation getDesignation() {
-        return designation;
+    int getDesignation() {
+        return ranks[this.designation];
     }
+
 };
+
+Employees findEmployee(int empId) {
+    Employees searchedEmployee;
+    for(int i=0; i<employees.size(); i++) {
+        searchedEmployee = employees[i];
+        if(searchedEmployee.empId == empId) return searchedEmployee;
+    }
+}
 
 int main() {
     int n;
@@ -57,7 +68,7 @@ int main() {
         Employees currEmp = employees[i];
         sort(currEmp.meetings.begin(), currEmp.meetings.end(), [&](Interval a, Interval b) {
             if(a.end == b.end) {
-                return a.empId.getDesignation() < b.empId.getDesignation();
+                return findEmployee(a.empId).getDesignation() < findEmployee(b.empId).getDesignation();
             }
             else {
                 return a.end < b.end;
