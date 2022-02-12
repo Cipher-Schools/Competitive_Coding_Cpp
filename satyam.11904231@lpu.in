@@ -1,7 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-vector<Employees> employees;
 enum Designation { CEO=500, CTO=400, MANAGER=300, SR_EMPLOYEE=200, EMPLOYEE=100 };
+class Interval {
+public:
+    int start, end; // [start, end) start is inclusive and end is exclusive.
+    void getdata()
+    {
+    	cin>>start;
+    	cin>>end;
+	}
+};
 class Employees {
     public:
     int empId;
@@ -11,13 +19,13 @@ class Employees {
     {
     	int e;
     	cin>>e;
-    	Designation d;
+    	int d;
     	cin>>d;
     	Designation R = static_cast<Designation>(d);
     	vector<Interval> m;
     	Interval I;
     	I.getdata();
-    	m.push_back(I.start,I.end);
+    	m.push_back(I);
     	this->empId=e;
     	this->designation=d;
     	this->meetings=m;
@@ -39,19 +47,21 @@ class Employees {
 			return B;
 		}
 	}
-}
-class Interval {
-public:
-    int start, end; // [start, end) start is inclusive and end is exclusive.
-    void getdata()
-    {
-    	cin>>start;
-    	cin>>end;
-	}
-}
+	
+};
+vector<Employees> employees;
 int main()
 {
-	Employees E1,E2;
-	E1.getdata();
-	E2.getdata();
+	int n;
+	cout<<"Enter No. of Employees";
+	cin>>n;
+	Employees E[n];
+	for(int i=0;i<n;i++)
+	{
+		E[i].getdata();
+	}
+	for(int i=0;i<n;i++)
+	{
+		E[i].printdata();
+	}
 }
