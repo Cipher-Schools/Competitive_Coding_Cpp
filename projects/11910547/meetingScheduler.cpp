@@ -10,7 +10,6 @@ Try to optimize for as many meetings as possible without any conflicts and remov
 
 using namespace std;
 
-vector<Employees> employees;
 enum Designation { CEO, CTO, MANAGER, SR_EMPLOYEE, EMPLOYEE };
 
 unordered_map<string, int> ranks = {{"CEO",0}, {"CTO", 1}, {"MANAGER", 2}, {"SR_EMPLOYEE", 3}, {"EMPLOYEE", 4}};
@@ -28,10 +27,11 @@ class Employees {
     vector<Interval> meetings; // daily meeting calander.
 
     int getDesignation() {
-        return ranks[this.designation];
+        return ranks[this->designation];
     }
 
 };
+vector<Employees> employees;
 
 Employees findEmployee(int empId) {
     Employees searchedEmployee;
