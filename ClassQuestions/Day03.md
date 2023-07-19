@@ -1,0 +1,5 @@
+1. [Decode Ways](https://leetcode.com/problems/decode-ways/)
+2. [Next Permutation](https://leetcode.com/problems/next-permutation/)
+3. [Permutations](https://leetcode.com/problems/permutations/)
+4. [Permutations II](https://leetcode.com/problems/permutations-ii/)
+5. [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)

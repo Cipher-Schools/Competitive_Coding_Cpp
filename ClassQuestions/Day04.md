@@ -1,0 +1,6 @@
+1. [Letter Combinations Of A Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+2. [Unique Path - 1](https://leetcode.com/problems/unique-paths/)
+3. [Unique Path 2 (Rat in Maze)](https://leetcode.com/problems/unique-paths-ii/) 
+4. [Unique Path 2.5]()
+5. [Unique Path 3](https://leetcode.com/problems/unique-paths-iii/)
+6. [Knight Tour Problem](https://leetcode.com/problems/check-knight-tour-configuration/)

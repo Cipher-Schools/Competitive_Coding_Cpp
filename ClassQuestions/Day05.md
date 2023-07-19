@@ -1,0 +1,6 @@
+1. [Word Search](https://leetcode.com/problems/word-search/)
+2. [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
+3. [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/)
+4. [N Queens](https://leetcode.com/problems/n-queens/)
+5. [Subsets](https://leetcode.com/problems/subsets/)
+6. [Subsets ii](https://leetcode.com/problems/subsets-ii/)

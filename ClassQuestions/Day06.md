@@ -1,0 +1,8 @@
+1. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
+2. [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
+3. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+4. [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)
+5. [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/)
+6. [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+7. [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
+8. [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)

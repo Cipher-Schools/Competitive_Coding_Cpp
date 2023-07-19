@@ -1,0 +1,5 @@
+1. [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+2. [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+3. [Zig-zag traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/)
+4. [Populating next right pointers in each node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/)
+5. [All nodes distance k in binary tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/)
