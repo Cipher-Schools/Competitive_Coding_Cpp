@@ -39,6 +39,37 @@ private:
 
 };
 
+// ------ Map Solution
+class Solution1 {
+public:
+    void permuteUnique(unordered_map<int, int>& freq, int idx, const int N, vector<int>& permutation,
+                    vector<vector<int>>& uniqPermutations) {
+        if (idx == N) {
+            uniqPermutations.push_back(permutation);
+            return;
+        }
+
+        for (auto itr = freq.begin(); itr != freq.end(); itr++) {
+            if (itr->second > 0) {
+                itr->second--;
+                permutation[idx] = itr->first;
+                permuteUnique(freq, idx + 1, N, permutation, uniqPermutations);
+                itr->second++;
+            }
+        }
+    }
+    vector<vector<int>> permuteUnique(vector<int>& nums) {
+        unordered_map<int, int> freq;
+        for (int num: nums) {
+            freq[num]++;
+        }
+        vector<vector<int>> uniqPermutations;
+        vector<int> permutation(nums.size());
+        permuteUnique(freq, 0, nums.size(), permutation, uniqPermutations);
+        return uniqPermutations;
+    }
+};
+
 
 int main() {
     Solution sol;
