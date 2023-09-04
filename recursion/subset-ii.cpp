@@ -36,7 +36,7 @@ void subsetWithDup(vector<int>& nums, int idx, vector<int>& setSoFar, vector<vec
     for (int i = idx; i < nums.size(); i++) {
         if (i > idx && nums[i] == nums[i - 1]) continue;
         setSoFar.push_back(nums[i]);
-        subsetWithDup(nums, idx + 1, setSoFar, powerSet);
+        subsetWithDup(nums, i + 1, setSoFar, powerSet);
         setSoFar.pop_back();
     }
 }
