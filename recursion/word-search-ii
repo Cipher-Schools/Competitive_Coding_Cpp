@@ -1,0 +1,100 @@
+
+#define CHILDREN 26
+#define POSSIBLE_MOVES 4
+pair<int, int> moves[] = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+class Solution {
+public:
+    class TrieNode {
+    public:
+        bool eow;
+        TrieNode* children[CHILDREN];
+        TrieNode() {
+            this->eow = false;
+            for (int i = 0; i < CHILDREN; i++) {
+                this->children[i] = nullptr;
+            }
+        }
+
+        bool isLeaf() {
+            for (int i = 0; i < CHILDREN; i++) {
+                if (this->children[i] != nullptr) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    };
+    class Trie{
+        TrieNode* root;
+        unordered_set<string> words;
+    public:
+        Trie() {
+            this->root = new TrieNode();
+        }
+
+        void Insert(string str) {
+            TrieNode* crawler = this->root;
+            for (int i = 0; i < str.size(); i++) {
+                if (!crawler->children[str[i] - 'a']) {
+                    crawler->children[str[i] - 'a'] = new TrieNode();
+                }
+                crawler = crawler->children[str[i] - 'a'];
+            }
+            crawler->eow = true;
+        }
+
+        bool Search(string str) {
+            TrieNode* crawler = this->root;
+            for (int i = 0; i < str.size(); i++) {
+                if (!crawler->children[str[i] - 'a']) {
+                    return false;
+                }
+                crawler = crawler->children[str[i] - 'a'];
+            }
+            return crawler->eow;
+        }
+
+        void findWords(TrieNode* crawler, string& wordSoFar, int x, int y, const int& R, const int& C, vector<vector<char>>& board) {
+            if (!crawler)
+                return;
+
+            wordSoFar.push_back(board[x][y]);
+            char temp = board[x][y];
+            board[x][y] = '.'; // marking as visited
+
+            if (crawler->eow) {
+                words.insert(wordSoFar);
+            }
+
+            for (int i = 0; i < POSSIBLE_MOVES; i++) {
+                int nextX = x + moves[i].first, nextY = y + moves[i].second;
+                if (nextX >= 0 && nextX < R && nextY >= 0 && nextY < C && board[nextX][nextY] != '.' && crawler->children[board[nextX][nextY] - 'a']) {
+                    findWords(crawler->children[board[nextX][nextY] - 'a'], wordSoFar, nextX, nextY, R, C, board);
+                }
+            }
+
+            board[x][y] = temp;
+            wordSoFar.pop_back();
+        }
+
+        vector<string> findWords(vector<vector<char>>& board) {
+            int R = board.size(), C = board[0].size();
+
+
+            for (int r = 0; r < R; r++) {
+                for (int c = 0; c < C; c++) {
+                    string wordSoFar;
+                    findWords(root->children[board[r][c] - 'a'], wordSoFar, r, c, R, C, board);
+                }
+            }
+            return vector<string>(words.begin(), words.end());
+        }
+    };
+    vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
+        Trie t;
+        for (string word: words) {
+            t.Insert(word);
+        }
+        return t.findWords(board);
+    }
+};
